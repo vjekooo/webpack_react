@@ -3,13 +3,18 @@ body {
 }
 .container {
   width: 800px;
+  height: 500px;
   margin: 0 auto;
-  background-color: orange;
+  
 }
 .one {
-  border: 1px solid black;
+  width: 500px;
   padding-left: 1rem;
   h1 {
     color: white;
   }
+}
+.two {
+  width: 500px;
+  height: 100px;
 }
