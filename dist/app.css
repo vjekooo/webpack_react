@@ -1,1 +1,1 @@
-body{background-color:#ffe4e1}.container{width:800px;margin:0 auto;background-color:orange}.one{border:1px solid #000;padding-left:1rem}.one h1{color:#fff}
+*{padding:0;margin:0;box-sizing:border-box}body{background-color:salmon}.container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;width:800px;height:500px;margin:0 auto}.one{width:500px;padding-left:1rem}.one h1{color:#ffe4e1}.two{width:500px;height:100px}

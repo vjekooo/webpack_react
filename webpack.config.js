@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const inProduction = (process.env.NODE_ENV === 'production')
 const cssDevelopment = ['style-loader', 'css-loader', 'sass-loader']
 const cssProduction = ExtractTextPlugin.extract({
-	use: ['css-loader', 'sass-loader'],
+	use: ['css-loader', 'postcss-loader', 'sass-loader'],
 	fallback: 'style-loader'
 })
 const cssConfig = inProduction ? cssProduction : cssDevelopment
