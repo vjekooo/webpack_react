@@ -12,21 +12,25 @@ const cssProduction = ExtractTextPlugin.extract({
 })
 const cssConfig = inProduction ? cssProduction : cssDevelopment
 // Constants
-const DIST = path.join(__dirname, 'dist');
-const TEMPLATE = path.join(__dirname, 'src/templates/index.ejs')
-const HOST = process.env.HOST || 'localhost'
-const PORT = process.env.PORT || 8080
+const paths = {
+	DIST: path.resolve(__dirname, 'dist'),
+	SRC: path.resolve(__dirname, 'src'),
+	JS: path.resolve(__dirname, 'src/js'),
+	TEMPLATE: path.resolve(__dirname, 'src/templates/index.html'),
+	HOST: process.env.HOST || 'localhost',
+	PORT: process.env.PORT || 8080
+}
 
 module.exports = {
 	entry: {
-		app: './src/main.jsx'
+		app: path.join(paths.JS, 'index.jsx')
 	},
 	output: {
-		path: DIST,
+		path: paths.DIST,
 		filename: '[name].js'
 	},
 	resolve: {
-    extensions: ['.js', '.jsx', '.json', '.scss', '.css']
+    extensions: ['.js', '.jsx', '.json']
   },
 	module: {
 		rules: [
@@ -70,14 +74,16 @@ module.exports = {
 	},
 	devtool: 'eval-source-map',
 	devServer: {
+		contentBase: paths.SRC,
 		historyApiFallback: true,
 		hot: true,
 		progress: true,
 		stats: 'minimal',
-		host: HOST,
-		port: PORT
+		host: paths.HOST,
+		port: paths.PORT
 	},
 	plugins: [
+		new CleanWebpackPlugin([paths.DIST]),
 		new ExtractTextPlugin({
 			filename: '[name].css',
 			disable: !inProduction,
@@ -88,8 +94,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			title: 'Noice',
-			template: TEMPLATE,
-      inject: 'body'
+			template: paths.TEMPLATE,
 		}),
 		new webpack.HotModuleReplacementPlugin()
 	]
@@ -97,7 +102,6 @@ module.exports = {
 
 if (inProduction) {
 	module.exports.plugins.push(
-		new CleanWebpackPlugin([DIST]),
 		new webpack.optimize.UglifyJsPlugin()
 	)
 }
