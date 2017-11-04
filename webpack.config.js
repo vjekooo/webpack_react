@@ -3,6 +3,7 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const WebpackMonitor = require('webpack-monitor')
 // Something
 const inProduction = (process.env.NODE_ENV === 'production')
 const cssDevelopment = ['style-loader', 'css-loader', 'sass-loader']
@@ -96,7 +97,11 @@ module.exports = {
 			title: 'Noice',
 			template: paths.TEMPLATE,
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new WebpackMonitor({
+      capture: true,
+      launch: true,
+    })
 	]
 }
 
