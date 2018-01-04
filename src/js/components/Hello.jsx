@@ -5,10 +5,7 @@ const Hello = () => {
   return (
     <div className="container">
       <div className="one">
-        <div className="two">
-          Noice
-        </div>
-        <h1>help?</h1>
+        <h1>Hello</h1>
       </div>
     </div>
   )

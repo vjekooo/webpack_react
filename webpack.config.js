@@ -3,6 +3,7 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const eslintFormatter = require('react-dev-utils/eslintFormatter')
 // Something
 const inProduction = (process.env.NODE_ENV === 'production')
 const cssDevelopment = ['style-loader', 'css-loader', 'sass-loader']
@@ -34,21 +35,29 @@ module.exports = {
   },
 	module: {
 		rules: [
-			//  {
-      //    enforce: 'pre',
-      //    test: /\.js|jsx$/,
-      //    use: 'eslint-loader',
-      //    exclude: /node_modules/
-			//  },
+			{
+        test: /\.(js|jsx|mjs)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve('eslint'),
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+        ],
+        include: paths.JS,
+      },
 			{ 
 				test: /\.jsx?$/, 
-				exclude: /node_modules/, 
+				include: paths.JS, 
 				use: "babel-loader" 
 			},
 			{
 				test: /\.json$/,
 				use: 'json',
-				exclude: /node_modules/,
+				include: paths.SRC,
 			},
 			{
 				test: /\.scss$/,
@@ -72,7 +81,7 @@ module.exports = {
 			}
 		]
 	},
-	devtool: 'eval-source-map',
+	devtool: inProduction ? 'eval' : 'source-map',
 	devServer: {
 		contentBase: paths.SRC,
 		historyApiFallback: true,
