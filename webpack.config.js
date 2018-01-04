@@ -3,7 +3,6 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const WebpackMonitor = require('webpack-monitor')
 // Something
 const inProduction = (process.env.NODE_ENV === 'production')
 const cssDevelopment = ['style-loader', 'css-loader', 'sass-loader']
@@ -35,12 +34,12 @@ module.exports = {
   },
 	module: {
 		rules: [
-			// {
-      //   enforce: 'pre',
-      //   test: /\.js|jsx$/,
-      //   use: 'eslint-loader',
-      //   exclude: /node_modules/
-			// },
+			//  {
+      //    enforce: 'pre',
+      //    test: /\.js|jsx$/,
+      //    use: 'eslint-loader',
+      //    exclude: /node_modules/
+			//  },
 			{ 
 				test: /\.jsx?$/, 
 				exclude: /node_modules/, 
@@ -97,11 +96,7 @@ module.exports = {
 			title: 'Noice',
 			template: paths.TEMPLATE,
 		}),
-		new webpack.HotModuleReplacementPlugin(),
-		new WebpackMonitor({
-      capture: true,
-      launch: true,
-    })
+		new webpack.HotModuleReplacementPlugin()
 	]
 }
 
