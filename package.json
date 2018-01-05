@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --hot",
-    "prod": "NODE_ENV=production webpack"
+    "prod": "NODE_ENV=production webpack",
+    "clean": "rm -rf ./dist"
   },
   "author": "Vjeko",
   "license": "MIT",
@@ -19,7 +20,6 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.8",
     "eslint": "^4.14.0",
     "eslint-config-react": "^1.1.7",

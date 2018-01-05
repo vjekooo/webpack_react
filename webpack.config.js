@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const eslintFormatter = require('react-dev-utils/eslintFormatter')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
@@ -99,7 +98,6 @@ module.exports = {
 
 if (!inProduction) {
 	module.exports.plugins.push(
-		new CleanWebpackPlugin([paths.DIST]),
 		new HtmlWebpackPlugin({
 			title: 'Noice',
 			template: path.join(paths.SRC, 'index.html')
