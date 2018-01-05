@@ -24,7 +24,8 @@ const paths = {
 
 module.exports = {
 	entry: {
-		app: path.join(paths.JS, 'index.jsx')
+		app: path.join(paths.JS, 'index.jsx'),
+		vendor: ["react", "react-dom"]
 	},
 	output: {
 		path: paths.DIST,
@@ -81,7 +82,7 @@ module.exports = {
 			}
 		]
 	},
-	devtool: inProduction ? 'eval' : 'source-map',
+	devtool: inProduction ? 'source-map' : 'eval',
 	devServer: {
 		contentBase: paths.SRC,
 		historyApiFallback: true,
@@ -92,6 +93,9 @@ module.exports = {
 		port: paths.PORT
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "vendor",
+		}),
 		new CleanWebpackPlugin([paths.DIST]),
 		new ExtractTextPlugin({
 			filename: '[name].css',
