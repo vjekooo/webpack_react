@@ -1,11 +1,11 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 
 const Hello = () => {
   return (
     <div className="container">
       <div className="one">
-        <h1>Hello</h1>
+        <h1>Aaaaaaaa</h1>
       </div>
     </div>
   )
