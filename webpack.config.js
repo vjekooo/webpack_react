@@ -94,15 +94,16 @@ module.exports = {
 		host: paths.HOST,
 		port: paths.PORT
 	},
-	plugins: []
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: 'Noice',
+			template: path.join(paths.SRC, 'index.html')
+		})
+	]
 }
 
 if (!inProduction) {
 	module.exports.plugins.push(
-		new HtmlWebpackPlugin({
-			title: 'Noice',
-			template: path.join(paths.SRC, 'index.html')
-		}),
 		new webpack.HotModuleReplacementPlugin()
 	)
 }
