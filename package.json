@@ -13,6 +13,10 @@
   },
   "author": "Vjeko",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vjekooo/webpack_react"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

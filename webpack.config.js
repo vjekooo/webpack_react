@@ -9,6 +9,7 @@ const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 const paths = {
 	DIST: path.resolve(__dirname, 'dist'),
 	SRC: path.resolve(__dirname, 'src'),
+	ASS: path.resolve(__dirname, 'assets'),
 	JS: path.resolve(__dirname, 'src/js'),
 	HOST: process.env.HOST || 'localhost',
 	PORT: process.env.PORT || 8080
@@ -42,7 +43,7 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.JS,
+        include: paths.SRC,
       },
 			{ 
 				test: /\.jsx?$/, 
@@ -73,7 +74,7 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'images/[name].[ext]'
+							name: 'assests/img/[name].[ext]'
 						}
 					},
 					'img-loader'
