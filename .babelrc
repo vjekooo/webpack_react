@@ -1,12 +1,11 @@
 {
   "presets": [
-    "es-2015",
-    "react",
     ["env", {
       "targets": {
         "browsers": "last 2 versions"
       }
-    }]
+    }],
+    "react"
   ],
   "plugins": ["transform-class-properties"]
 }
