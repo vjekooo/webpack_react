@@ -3,7 +3,6 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const eslintFormatter = require('react-dev-utils/eslintFormatter')
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 // Constants
 const paths = {
@@ -86,6 +85,7 @@ module.exports = {
 	devServer: {
 		contentBase: paths.SRC,
 		historyApiFallback: true,
+		open: true,
 		stats: 'minimal',
 		overlay: {
       errors: true,
@@ -110,9 +110,6 @@ if (!inProduction) {
 
 if (inProduction) {
 	module.exports.plugins.push(
-		// new InlineManifestWebpackPlugin({
-		// 	name: 'webpackManifest'
-		// }),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
 		}),
