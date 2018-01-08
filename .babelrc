@@ -1,5 +1,6 @@
 {
   "presets": [
+    "es-2015",
     "react",
     ["env", {
       "targets": {
