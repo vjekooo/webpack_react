@@ -117,7 +117,9 @@ if (inProduction) {
 			name: "manifest",
 			minChunks: Infinity
 		}),
-		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			sourceMap: true
+		}),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash:8].css',
 			allChunks: true
