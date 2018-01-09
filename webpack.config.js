@@ -55,17 +55,26 @@ module.exports = {
 				include: paths.SRC,
 			},
 			{
-				test: /\.scss$/,
+				test:/\.(s*)css$/,
 				use: inProduction 
 					? ExtractTextPlugin.extract({
-							use: ['css-loader', 'postcss-loader', 'sass-loader'],
-							fallback: 'style-loader'
+							fallback: 'style-loader',
+							use: [
+								{
+									loader: 'css-loader',
+									options: {
+										minimize: true
+									}
+								}, 
+								{
+									loader: 'postcss-loader'
+								}, 
+								{
+									loader: 'sass-loader'
+								}
+							]
 						}) 
 					: ['style-loader', 'css-loader', 'sass-loader']
-			},
-			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.(png|jpe?g|gif)$/,
