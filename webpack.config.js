@@ -74,7 +74,7 @@ module.exports = {
 								}
 							]
 						}) 
-					: ['style-loader', 'css-loader', 'sass-loader']
+					: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
 			},
 			{
 				test: /\.(png|jpe?g|gif)$/,
