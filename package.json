@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "NODE_ENV=development nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
-    "prod": "NODE_ENV=production webpack",
+    "prod": "NODE_ENV=production webpack -p",
     "test": "jest",
     "clean": "rm -rf ./dist"
   },
