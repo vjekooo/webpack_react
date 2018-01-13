@@ -7,7 +7,7 @@
 * React 16
 * Webpack 3
 * SASS
-* Babel Cli
+* Babel
 * Hot Module Replacement
 * Jest 22
 
