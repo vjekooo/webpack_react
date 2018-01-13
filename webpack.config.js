@@ -74,7 +74,7 @@ module.exports = {
 								}
 							]
 						}) 
-					: ['style-loader', 'css-loader', 'sass-loader']
+					: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
 			},
 			{
 				test: /\.(png|jpe?g|gif)$/,
@@ -127,7 +127,8 @@ if (inProduction) {
 			minChunks: Infinity
 		}),
 		new webpack.optimize.UglifyJsPlugin({
-			sourceMap: true
+			sourceMap: true,
+			exclude: [/\.min\.js$/gi]
 		}),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash:8].css',
