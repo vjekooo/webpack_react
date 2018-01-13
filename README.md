@@ -8,17 +8,17 @@
 * Webpack 3
 * SASS
 * Babel Cli
-* Hot Module Reloading
+* Hot Module Replacement
 * Jest 22
 
 ### Features
 
-* Webpack configuration for development (with hot reloading) and production (with minification).
-* CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
+* Webpack configuration for development (with hmr) and production (with minification).
 * Both js(x) and css hot loaded during development.
+* Babel with class properties
 * Sourcemaps for JS and CSS.
 * CSS autoprefixing.
-* Code Splitting ( app <-> vendor )
+* Code Splitting ( app <-> vendor ).
 
 ### To run
 
