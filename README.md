@@ -10,15 +10,17 @@
 * Babel
 * Hot Module Replacement
 * Jest 22
+* ESLint
 
 ### Features
 
 * Webpack configuration for development (with hmr) and production (with minification).
 * Both js(x) and css hot loaded during development.
-* Babel with class properties
+* Babel with class properties.
 * Sourcemaps for JS and CSS.
-* CSS autoprefixing.
+* CSS autoprefixing and extraction to a separate file.
 * Code Splitting ( app <-> vendor ).
+* ESLint - standard, no exceptions.
 
 ### To run
 
@@ -41,7 +43,7 @@ npm install
 npm run dev
 ```
 
-Wait for the browser to open
+ * Wait for the browser to open
 
 ### To test
 To run unit tests:
@@ -55,6 +57,3 @@ npm test
 ```
 npm run build
 ```
-
-### ESLint
-Standard - no exceptions
