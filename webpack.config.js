@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const eslintFormatter = require('react-dev-utils/eslintFormatter')
 
 // Constants
 const paths = {
@@ -33,21 +32,13 @@ module.exports = {
 			{
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
-        include: paths.SRC,
+        loader: 'eslint-loader',
+        include: paths.SRC
       },
 			{ 
 				test: /\.jsx?$/, 
 				include: paths.SRC, 
-				use: "babel-loader" 
+				use: 'babel-loader'
 			},
 			{
 				test: /\.json$/,

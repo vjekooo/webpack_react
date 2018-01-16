@@ -1,11 +1,13 @@
 
-import React from 'react'
+import React, { Component } from 'react'
 import Hello from './Hello'
 
-const App = () => {
-  return (
-    <Hello />
-  )
+class App extends Component {
+  render () {
+    return (
+      <Hello />
+    )
+  }
 }
 
 export default App
