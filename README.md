@@ -16,7 +16,7 @@
 
 * Webpack configuration for development (with hmr) and production (with minification).
 * Both js(x) and css hot loaded during development.
-* Babel with class properties.
+* Babel with class properties and object rest spread (Stage 3 proposals for ECMAScript).
 * Sourcemaps for JS and CSS.
 * CSS autoprefixing and extraction to a separate file.
 * Code Splitting ( app <-> vendor ).
