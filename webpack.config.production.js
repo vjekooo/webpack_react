@@ -12,7 +12,6 @@ const paths = {
 	HOST: process.env.HOST || 'localhost',
 	PORT: process.env.PORT || 8080
 }
-const inProduction = (process.env.NODE_ENV === 'production')
 
 // Main config
 module.exports = {
@@ -21,7 +20,7 @@ module.exports = {
 		app: path.join(paths.SRC, 'index.jsx')
 	},
 	output: {
-		filename: inProduction? '[name].[chunkhash:8].js' : '[name].js',
+		filename: '[name].[chunkhash:8].js',
 		path: paths.DIST
 	},
 	resolve: {
@@ -36,8 +35,8 @@ module.exports = {
         include: paths.SRC
       },
 			{ 
-				test: /\.jsx?$/, 
-				include: paths.SRC, 
+				test: /\.jsx?$/,
+				include: paths.SRC,
 				use: 'babel-loader'
 			},
 			{
@@ -46,26 +45,34 @@ module.exports = {
 				include: paths.SRC,
 			},
 			{
-				test:/\.(s*)css$/,
-				use: inProduction 
-					? ExtractTextPlugin.extract({
-							fallback: 'style-loader',
-							use: [
-								{
-									loader: 'css-loader',
-									options: {
-										minimize: true
-									}
-								}, 
-								{
-									loader: 'postcss-loader'
-								}, 
-								{
-									loader: 'sass-loader'
-								}
-							]
-						}) 
-					: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+				test: /\.(s*)css$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								minimize: true,
+								sourceMap: true
+							}
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+                config: {
+                  ctx: {
+                    autoprefixer: {
+                      browsers: 'last 2 versions'
+                    }
+                  }
+                }
+              }
+						},
+						{
+							loader: 'sass-loader'
+						}
+					]
+				})
 			},
 			{
 				test: /\.(png|jpe?g|gif)$/,
@@ -81,49 +88,31 @@ module.exports = {
 			}
 		]
 	},
-	devtool: inProduction ? 'source-map' : 'eval',
-	devServer: {
-		contentBase: paths.SRC,
-		historyApiFallback: true,
-		open: true,
-		stats: 'minimal',
-		overlay: {
-      errors: true,
-      warnings: true,
-    },
-		host: paths.HOST,
-		port: paths.PORT
-	},
+	devtool: 'source-map',
+	optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          test: 'vendor',
+          name: 'vendor',
+          enforce: true
+        }
+      }
+    }
+  },
 	plugins: [
-		new HtmlWebpackPlugin({
-			title: 'Noice',
-			template: path.join(paths.SRC, 'index.html')
-		})
-	]
-}
-
-if (!inProduction) {
-	module.exports.plugins.push(
-		new webpack.HotModuleReplacementPlugin()
-	)
-}
-
-if (inProduction) {
-	module.exports.plugins.push(
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor',
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "manifest",
-			minChunks: Infinity
-		}),
 		new webpack.optimize.UglifyJsPlugin({
 			sourceMap: true,
 			exclude: [/\.min\.js$/gi]
+		}),
+		new HtmlWebpackPlugin({
+			title: 'Noice',
+			template: path.join(paths.SRC, 'index.html')
 		}),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash:8].css',
 			allChunks: true
 		})
-	)
+	]
 }

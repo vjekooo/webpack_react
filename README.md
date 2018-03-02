@@ -5,7 +5,7 @@
 ### What's inside
 
 * React 16
-* Webpack 3
+* Webpack 4
 * SASS
 * Babel
 * Hot Module Replacement
