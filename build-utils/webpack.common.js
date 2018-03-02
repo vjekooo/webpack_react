@@ -60,7 +60,8 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'Noice',
-			template: `${commonPaths.appEntry}/index.html`
+			template: `${commonPaths.appEntry}/index.html`,
+			favicon: `${commonPaths.appEntry}/favicon.ico`
 		})
 	]
 }

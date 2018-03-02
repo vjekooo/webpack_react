@@ -47,10 +47,6 @@ const config = {
 	},
 	devtool: 'source-map',
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			sourceMap: true,
-			exclude: [/\.min\.js$/gi]
-		}),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash:8].css',
 			allChunks: true
