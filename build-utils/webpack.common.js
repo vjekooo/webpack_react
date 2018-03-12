@@ -32,15 +32,16 @@ const config = {
 				include: commonPaths.appEntry
 			},
 			{
-				test: /\.(png|jpe?g|gif)$/,
-				loaders: [
+				test: /\.(gif|png|jpe?g|svg)$/i,
+				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'assests/img/[name].[ext]'
+							name: '[name].[ext]',
+							outputPath: 'assets/img/',
+							publicPath: 'assets/img/'
 						}
-					},
-					'img-loader'
+					}
 				]
 			}
 		]
