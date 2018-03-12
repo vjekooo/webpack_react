@@ -7,8 +7,7 @@ const config = {
 		vendor: ['react', 'react-dom']
 	},
 	output: {
-		path: commonPaths.outputPath,
-		publicPath: '/'
+		path: commonPaths.outputPath
 	},
 	resolve: {
     extensions: ['.js', '.jsx', '.json']
