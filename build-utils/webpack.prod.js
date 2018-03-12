@@ -6,8 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = {
 	mode: 'production',
 	entry: {
-		app: [`${commonPaths.appEntry}/index.jsx`]
-	},
+    app: [`${commonPaths.appEntry}/index.jsx`]
+  },
 	output: {
 		filename: '[name].[chunkhash:8].js'
 	},
@@ -48,7 +48,7 @@ const config = {
 	devtool: 'source-map',
 	plugins: [
 		new ExtractTextPlugin({
-			filename: '[name].[contenthash:8].css',
+			filename: 'style/[name].[contenthash:8].css',
 			allChunks: true
 		})
 	]

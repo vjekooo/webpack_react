@@ -1,6 +1,6 @@
 
 import React from 'react'
-import fry from '../../assets/img/fry.jpg'
+import fry from '../../assets/images/fry.jpg'
 
 const Hello = () => {
   return (

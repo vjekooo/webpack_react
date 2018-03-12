@@ -33,13 +33,31 @@ const config = {
 			},
 			{
 				test: /\.(gif|png|jpe?g|svg)$/i,
+				include: `${commonPaths.appEntry}/assets/images`,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: '[name].[ext]',
-							outputPath: 'assets/img/',
-							publicPath: 'assets/img/'
+							name: 'assets/images/[hash:8]-[name].[ext]'
+						}
+					},
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							mozjpeg: {
+								progressive: true,
+								quality: 70
+							},
+							optipng: {
+								optimizationLevel: 7
+							},
+							pngquant: {
+								quality: '65-90',
+								speed: 4
+							},
+							gifsicle: {
+								interlaced: false,
+							}
 						}
 					}
 				]
@@ -61,8 +79,8 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'Noice',
-			template: `${commonPaths.appEntry}/index.html`,
-			favicon: `${commonPaths.appEntry}/favicon.ico`
+			template: `public/index.html`,
+      favicon: `public/favicon.ico`
 		})
 	]
 }
