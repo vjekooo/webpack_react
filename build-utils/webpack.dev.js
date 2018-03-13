@@ -16,7 +16,33 @@ const config = {
 		rules: [
 			{
 				test: /\.(s*)css$/,
-				use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+				use: [
+					{
+						loader: 'style-loader'
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							minimize: true,
+							sourceMap: true
+						}
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							config: {
+								ctx: {
+									autoprefixer: {
+										browsers: 'last 2 versions'
+									}
+								}
+							}
+						}
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
 			}
 		]
 	},
