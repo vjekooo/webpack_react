@@ -21,11 +21,7 @@ const config = {
 						loader: 'style-loader'
 					},
 					{
-						loader: 'css-loader',
-						options: {
-							minimize: true,
-							sourceMap: true
-						}
+						loader: 'css-loader'
 					},
 					{
 						loader: 'postcss-loader',
