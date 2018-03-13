@@ -9,7 +9,7 @@ const config = {
     app: [`${commonPaths.appEntry}/index.jsx`]
   },
 	output: {
-		filename: '[name].[chunkhash:8].js'
+		filename: 'js/[name].[chunkhash:8].js'
 	},
 	module: {
 		rules: [
