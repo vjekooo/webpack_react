@@ -5,9 +5,9 @@
   "main": "index.jsx",
   "scripts": {
     "dev": "webpack-dev-server --env.env=dev",
-    "dev:bundleanalyzer": "npm run dev --env.addons=bundleanalyzer",
+    "dev:bundleanalyzer": "webpack-dev-server --env.env=dev --env.addons=bundleanalyzer",
     "build": "cross-env NODE_ENV=production webpack -p --env.env=prod",
-    "build:bundleanalyzer": "npm run build --env.addons=bundleanalyzer",
+    "build:bundleanalyzer": "cross-env NODE_ENV=production webpack -p --env.env=prod --env.addons=bundleanalyzer",
     "test": "jest",
     "clean": "rm -rf ./dist"
   },
