@@ -1,7 +1,7 @@
 
 const commonPaths = require('./common-paths')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const config = {
 	mode: 'production',
@@ -15,42 +15,41 @@ const config = {
 		rules: [
 			{
 				test: /\.(s*)css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-						{
-							loader: 'css-loader',
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+							loader: "css-loader",
 							options: {
-								minimize: true,
-								sourceMap: true
+									minimize: {
+											safe: true
+									}
 							}
-						},
-						{
-							loader: 'postcss-loader',
+					},
+					{
+							loader: "postcss-loader",
 							options: {
-                config: {
+								config: {
                   ctx: {
                     autoprefixer: {
                       browsers: 'last 2 versions'
                     }
                   }
                 }
-              }
-						},
-						{
-							loader: 'sass-loader'
-						}
-					]
-				})
+							},
+					},
+					{
+							loader: "sass-loader",
+							options: {}
+					}
+				]
 			}
 		]
 	},
 	devtool: 'source-map',
 	plugins: [
-		new ExtractTextPlugin({
-			filename: 'style/[name].[contenthash:8].css',
-			allChunks: true
-		})
+		new MiniCssExtractPlugin({
+      filename: "[name]-[contenthash].css"
+    })
 	]
 }
 
