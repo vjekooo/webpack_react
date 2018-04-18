@@ -7,6 +7,7 @@
     "dev": "webpack-dev-server --env.env=dev",
     "dev:bundleanalyzer": "webpack-dev-server --env.env=dev --env.addons=bundleanalyzer",
     "build": "cross-env NODE_ENV=production webpack -p --env.env=prod",
+    "clean:build": "npm run clean | npm run build",
     "build:bundleanalyzer": "cross-env NODE_ENV=production webpack -p --env.env=prod --env.addons=bundleanalyzer",
     "test": "jest",
     "clean": "rm -rf ./dist"
