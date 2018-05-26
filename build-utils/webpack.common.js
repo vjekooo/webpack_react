@@ -10,16 +10,16 @@ const config = {
 		path: commonPaths.outputPath
 	},
 	resolve: {
-    extensions: ['.js', '.jsx', '.json']
-  },
+    	extensions: ['.js', '.jsx', '.json']
+  	},
 	module: {
 		rules: [
 			{
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        include: commonPaths.appEntry
-      },
+				test: /\.(js|jsx|mjs)$/,
+				enforce: 'pre',
+				loader: 'eslint-loader',
+				include: commonPaths.appEntry
+      		},
 			{ 
 				test: /\.jsx?$/,
 				include: commonPaths.appEntry,
@@ -64,22 +64,22 @@ const config = {
 		]
 	},
 	optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          chunks: 'initial',
-          test: 'vendor',
-          name: 'vendor',
-          enforce: true
-        }
-      }
-    }
-  },
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					chunks: 'initial',
+					test: 'vendor',
+					name: 'vendor',
+					enforce: true
+				}
+			}
+		}
+  	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'Noice',
 			template: `public/index.html`,
-      favicon: `public/favicon.ico`
+      		favicon: `public/favicon.ico`
 		})
 	]
 }

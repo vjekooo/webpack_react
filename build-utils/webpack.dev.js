@@ -7,8 +7,8 @@ const port = process.env.PORT || 3000
 const config = {
 	mode: 'development',
 	entry: {
-    app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
-  },
+    	app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
+  	},
 	output: {
 		filename: '[name].[hash].js'
 	},
@@ -17,27 +17,10 @@ const config = {
 			{
 				test: /\.(s*)css$/,
 				use: [
-					{
-						loader: 'style-loader'
-					},
-					{
-						loader: 'css-loader'
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							config: {
-								ctx: {
-									autoprefixer: {
-										browsers: 'last 2 versions'
-									}
-								}
-							}
-						}
-					},
-					{
-						loader: 'sass-loader'
-					}
+					'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
 				]
 			}
 		]
@@ -51,8 +34,8 @@ const config = {
 		stats: 'minimal',
 		port: port,
 		overlay: {
-      errors: true,
-      warnings: true
+      	errors: true,
+      	warnings: true
     }
 	},
 	plugins: [
