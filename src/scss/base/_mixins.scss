@@ -7,6 +7,12 @@
 		@content;
 	}
 }
+// Break on tablet
+@mixin small-breakpoint {
+	@media (min-width: #{$mobile}) {
+		@content;
+	}
+}
 
 // Break on desktop
 @mixin large-breakpoint {
