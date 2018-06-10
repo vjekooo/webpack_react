@@ -33,7 +33,7 @@ const config = {
 	devtool: 'source-map',
 	plugins: [
 		new MiniCssExtractPlugin({
-    		filename: '[name]-[contenthash].css'
+    		filename: 'style/[name]-[contenthash].css'
     	})
 	]
 }
