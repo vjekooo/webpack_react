@@ -10,17 +10,16 @@
 * Babel
 * Hot Module Replacement
 * Jest 22
-* ESLint
+* ESLint (Standard)
 
 ### Features
 
-* Webpack configuration for development (with hmr) and production (with minification).
-* Both js(x) and css hot loaded during development.
-* Babel with class properties and object rest spread (Stage 3 proposals for ECMAScript).
+* Webpack configuration for development (HMR) and production (with minification).
+* Babel with class properties (Stage 3) and object rest spread (Stage 4 proposal for ECMAScript).
 * Sourcemaps for JS and CSS.
 * CSS autoprefixing and extraction to a separate file.
 * Code Splitting ( app <-> vendor ).
-* ESLint - standard, no exceptions.
+* ESLint - standard, 1 tab - 4 spaces.
 
 ### To run
 

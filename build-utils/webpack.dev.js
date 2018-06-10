@@ -7,8 +7,8 @@ const port = process.env.PORT || 3000
 const config = {
 	mode: 'development',
 	entry: {
-    	app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
-  	},
+		app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
+	},
 	output: {
 		filename: '[name].[hash].js'
 	},
@@ -18,9 +18,9 @@ const config = {
 				test: /\.(s*)css$/,
 				use: [
 					'style-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader'
+					'css-loader',
+					'postcss-loader',
+					'sass-loader'
 				]
 			}
 		]
@@ -34,9 +34,9 @@ const config = {
 		stats: 'minimal',
 		port: port,
 		overlay: {
-      	errors: true,
-      	warnings: true
-    }
+			errors: true,
+			warnings: true
+		}
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()

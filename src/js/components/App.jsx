@@ -4,11 +4,11 @@ import { hot } from 'react-hot-loader'
 import Hello from './Hello'
 
 class App extends Component {
-  render () {
-    return (
-      <Hello />
-    )
-  }
+	render () {
+		return (
+			<Hello />
+		)
+	}
 }
 
 export default hot(module)(App)

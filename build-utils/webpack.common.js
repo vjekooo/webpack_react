@@ -10,8 +10,8 @@ const config = {
 		path: commonPaths.outputPath
 	},
 	resolve: {
-    	extensions: ['.js', '.jsx', '.json']
-  	},
+		extensions: ['.js', '.jsx', '.json']
+	},
 	module: {
 		rules: [
 			{
@@ -19,8 +19,8 @@ const config = {
 				enforce: 'pre',
 				loader: 'eslint-loader',
 				include: commonPaths.appEntry
-      		},
-			{ 
+			},
+			{
 				test: /\.jsx?$/,
 				include: commonPaths.appEntry,
 				use: 'babel-loader'
@@ -55,7 +55,7 @@ const config = {
 								speed: 4
 							},
 							gifsicle: {
-								interlaced: false,
+								interlaced: false
 							}
 						}
 					}
@@ -74,12 +74,12 @@ const config = {
 				}
 			}
 		}
-  	},
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'Noice',
 			template: `public/index.html`,
-      		favicon: `public/favicon.ico`
+			favicon: `public/favicon.ico`
 		})
 	]
 }

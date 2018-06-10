@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = {
 	mode: 'production',
 	entry: {
-    	app: [`${commonPaths.appEntry}/index.jsx`]
-  	},
+		app: [`${commonPaths.appEntry}/index.jsx`]
+	},
 	output: {
 		filename: 'js/[name].[chunkhash:8].js'
 	},
@@ -33,8 +33,8 @@ const config = {
 	devtool: 'source-map',
 	plugins: [
 		new MiniCssExtractPlugin({
-    		filename: 'style/[name]-[contenthash].css'
-    	})
+			filename: 'style/[name]-[contenthash].css'
+		})
 	]
 }
 
