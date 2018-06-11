@@ -6,15 +6,15 @@
 
 /* Containers */
 
-$x-small: 600px;
-$small: 800px;
-$medium: 1000px;
-$large: 1200px;
+$small: 35rem; // 560px
+$medium: 55rem; // 880px
+$large: 65rem; // 1040px
 
 /* Breakpoints */
 
-$mobile: $x-small;
-$desktop: $medium;
+$mobile: $small;
+$tablet: $medium;
+$desktop: $large;
 
 /* Colors */
 
