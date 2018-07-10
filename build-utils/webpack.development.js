@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 const port = process.env.PORT || 3000
 
-const config = {
+module.exports = ({ presets }) => ({
 	mode: 'development',
 	entry: {
 		app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
@@ -41,6 +41,4 @@ const config = {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
 	]
-}
-
-module.exports = config
+})

@@ -1,45 +1,97 @@
 
-const buildValidations = require('./build-utils/build-validations')
-const commonConfig = require('./build-utils/webpack.common')
-
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackMerge = require('webpack-merge')
+const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
+const presetConfig = require('./build-utils/loadPresets')
+const commonPaths = require('./build-utils/common-paths')
 
-// We can include Webpack plugins, through addons, that do
-// not need to run every time we are developing.
-// We will see an example when we set up 'Bundle Analyzer'
-const addons = (/* string | string[] */ addonsArg) => {
-	// Normalize array of addons (flatten)
-	let addons = [...[addonsArg]]
-		.filter(Boolean) // If addons is undefined, filter it out
-
-	return addons.map(addonName =>
-		require(`./build-utils/addons/webpack.${addonName}.js`)
+module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
+	return webpackMerge(
+		{
+			mode,
+			entry: {
+				vendor: ['react', 'react-dom']
+			},
+			output: {
+				path: commonPaths.outputPath
+			},
+			resolve: {
+				extensions: ['.js', '.jsx', '.json']
+			},
+			module: {
+				rules: [
+					{
+						test: /\.(js|jsx|mjs)$/,
+						enforce: 'pre',
+						loader: 'eslint-loader',
+						include: commonPaths.appEntry
+					},
+					{
+						test: /\.jsx?$/,
+						include: commonPaths.appEntry,
+						use: 'babel-loader'
+					},
+					{
+						test: /\.json$/,
+						use: 'json',
+						include: commonPaths.appEntry
+					},
+					{
+						test: /\.(gif|png|jpe?g|svg)$/i,
+						include: `${commonPaths.appEntry}/assets/images`,
+						use: [
+							{
+								loader: 'file-loader',
+								options: {
+									name: 'assets/images/[hash:8]-[name].[ext]'
+								}
+							},
+							{
+								loader: 'image-webpack-loader',
+								options: {
+									mozjpeg: {
+										progressive: true,
+										quality: 70
+									},
+									optipng: {
+										optimizationLevel: 7
+									},
+									pngquant: {
+										quality: '65-90',
+										speed: 4
+									},
+									gifsicle: {
+										interlaced: false
+									}
+								}
+							}
+						]
+					}
+				]
+			},
+			optimization: {
+				splitChunks: {
+					cacheGroups: {
+						vendor: {
+							chunks: 'initial',
+							test: 'vendor',
+							name: 'vendor',
+							enforce: true
+						}
+					}
+				}
+			},
+			plugins: [
+				new HtmlWebpackPlugin({
+					title: 'Noice',
+					template: `public/index.html`,
+					favicon: `public/favicon.ico`
+				}),
+				new webpack.ProgressPlugin()
+			]
+		},
+		modeConfig(mode),
+		presetConfig({ mode, presets })
 	)
-}
-
-// 'env' will contain the environment variable from 'scripts'
-// section in 'package.json'.
-// console.log(env); => { env: 'dev' }
-module.exports = env => {
-	// We use 'buildValidations' to check for the 'env' flag
-	if (!env) {
-		throw new Error(buildValidations.ERR_NO_ENV_FLAG)
-	}
-
-	// Select which Webpack configuration to use; development
-	// or production
-	// console.log(env.env); => dev
-	const envConfig = require(`./build-utils/webpack.${env.env}.js`)
-
-	// 'webpack-merge' will combine our shared configurations, the
-	// environment specific configurations and any addons we are
-	// including
-	const mergedConfig = webpackMerge(
-		commonConfig,
-		envConfig,
-		...addons(env.addons)
-	)
-
-	// Then return the final configuration for Webpack
-	return mergedConfig
 }

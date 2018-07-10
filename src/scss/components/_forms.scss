@@ -82,7 +82,7 @@ label {
 	margin: 1rem 0 .5rem;
 }
 
-@include small-breakpoint {
+@include mobile {
 	.split-form {
 		// Split forms have right aligned labels and margins on the column
 		label {

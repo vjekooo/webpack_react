@@ -2,7 +2,7 @@
 const commonPaths = require('./common-paths')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const config = {
+module.exports = () => ({
 	mode: 'production',
 	entry: {
 		app: [`${commonPaths.appEntry}/index.jsx`]
@@ -36,6 +36,4 @@ const config = {
 			filename: 'style/[name]-[contenthash].css'
 		})
 	]
-}
-
-module.exports = config
+})

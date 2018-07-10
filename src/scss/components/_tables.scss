@@ -44,7 +44,7 @@ caption {
 	overflow-x: auto;
 }
 
-@include small-breakpoint {
+@include mobile {
 	.contain-table {
 		width: 100%;
 	}

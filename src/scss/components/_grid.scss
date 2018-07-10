@@ -33,7 +33,7 @@ $margin-bottom: 1rem;
 
 /* Small screen breakpoint */
 
-@include small-breakpoint {
+@include mobile {
 	.flex-small {
 		flex: 1 1 0;
 		margin-bottom: 0;
@@ -43,7 +43,7 @@ $margin-bottom: 1rem;
 
 /* Large screen breakpoint */
 
-@include large-breakpoint {
+@include desktop {
 	.flex-large {
 		flex: 1 1 0;
 		margin-bottom: 0;
