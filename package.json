@@ -5,9 +5,7 @@
 	"main": "index.jsx",
 	"scripts": {
 		"dev": "webpack-dev-server --env.mode development",
-		"dev:analyze": "npm run dev -- --env.presets analyze",
-		"build": "webpack --env.mode production",
-		"clean:build": "npm run clean | npm run build",
+		"build": "npm run clean | webpack --env.mode production",
 		"build:analyze": "npm run prod -- --env.presets analyze",
 		"test": "jest",
 		"clean": "rm -rf ./dist"
