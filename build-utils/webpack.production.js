@@ -2,8 +2,8 @@
 const commonPaths = require('./common-paths')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = () => ({
-	mode: 'production',
+module.exports = env => ({
+	mode: env.mode,
 	entry: {
 		app: [`${commonPaths.appEntry}/index.jsx`]
 	},

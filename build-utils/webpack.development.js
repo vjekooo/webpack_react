@@ -4,8 +4,8 @@ const webpack = require('webpack')
 
 const port = process.env.PORT || 3000
 
-module.exports = ({ presets }) => ({
-	mode: 'development',
+module.exports = env => ({
+	mode: env.mode,
 	entry: {
 		app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
 	},
