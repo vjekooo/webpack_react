@@ -15,7 +15,12 @@ module.exports = env => ({
 			{
 				test: /\.(s*)css$/,
 				use: [
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: '../'
+						}
+					},
 					{
 						loader: 'css-loader',
 						options: {
