@@ -1,6 +1,8 @@
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const webpackMerge = require('webpack-merge')
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
 const presetConfig = require('./build-utils/loadPresets')
@@ -80,7 +82,15 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 							enforce: true
 						}
 					}
-				}
+				},
+				minimizer: [
+					new UglifyJsPlugin({
+						cache: true,
+						parallel: true,
+						sourceMap: true
+					}),
+					new OptimizeCSSAssetsPlugin({})
+				]
 			},
 			plugins: [
 				new HtmlWebpackPlugin({

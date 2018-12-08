@@ -1,17 +1,4 @@
 {
-	"presets": [
-		[
-			"env", {
-				"modules": false,
-				"targets": {
-					"browsers": [
-						"last 2 versions"
-					]
-				}
-			}
-		],
-		"react",
-		"stage-3"
-	],
+	"presets": ["@babel/preset-env", "@babel/preset-react"],
 	"plugins": ["react-hot-loader/babel"]
 }

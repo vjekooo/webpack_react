@@ -21,14 +21,7 @@ module.exports = env => ({
 							publicPath: '../'
 						}
 					},
-					{
-						loader: 'css-loader',
-						options: {
-							minimize: {
-								safe: true
-							}
-						}
-					},
+					'css-loader',
 					'postcss-loader',
 					'sass-loader'
 				]
