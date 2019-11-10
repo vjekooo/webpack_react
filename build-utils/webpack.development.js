@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 module.exports = env => ({
 	mode: env.mode,
 	entry: {
-		app: ['react-hot-loader/patch', `${commonPaths.appEntry}/index.jsx`]
+		app: [`${commonPaths.appEntry}/index.tsx`]
 	},
 	output: {
 		filename: '[name].[hash].js'

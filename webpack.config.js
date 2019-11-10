@@ -19,18 +19,18 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 				path: commonPaths.outputPath
 			},
 			resolve: {
-				extensions: ['.js', '.jsx', '.json']
+				extensions: ['.ts', '.tsx', '.js', '.json']
 			},
 			module: {
 				rules: [
 					{
-						test: /\.(js|jsx|mjs)$/,
+						test: /\.(ts|tsx|js)$/,
 						enforce: 'pre',
 						loader: 'eslint-loader',
 						include: commonPaths.appEntry
 					},
 					{
-						test: /\.jsx?$/,
+						test: /\.tsx?$/,
 						include: commonPaths.appEntry,
 						use: 'babel-loader'
 					},
@@ -41,12 +41,12 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 					},
 					{
 						test: /\.(gif|png|jpe?g|svg)$/i,
-						include: `${commonPaths.appEntry}/assets/images`,
+						include: `${commonPaths.appEntry}/images`,
 						use: [
 							{
 								loader: 'file-loader',
 								options: {
-									name: 'assets/images/[hash:8]-[name].[ext]'
+									name: 'images/[hash:8]-[name].[ext]'
 								}
 							},
 							{

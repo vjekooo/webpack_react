@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = env => ({
 	mode: env.mode,
 	entry: {
-		app: [`${commonPaths.appEntry}/index.jsx`]
+		app: [`${commonPaths.appEntry}/index.tsx`]
 	},
 	output: {
 		filename: 'js/[name].[chunkhash:8].js'

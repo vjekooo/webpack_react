@@ -1,25 +1,27 @@
 {
-	"parser": "babel-eslint",
-	"extends": ["standard", "plugin:react/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
 	"plugins": [
 		"react"
 	],
 	"parserOptions": {
-	"ecmaVersion": 8,
-	"sourceType": "module",
-	"ecmaFeatures": {
-		"jsx": true,
-		"experimentalObjectRestSpread": true
-	}
-	},
-	"env": {
-		"browser": true,
-		"node": true
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	},
 	"rules": {
-		"react/jsx-uses-react": "error",
-		"react/jsx-uses-vars": "error",
+		"react/prop-types": 0,
 		"indent": ["error", "tab"],
 		"no-tabs": 0
+	},
+	"settings":  {
+		"react":  {
+		  "version":  "detect"
+		}
 	}
 }
