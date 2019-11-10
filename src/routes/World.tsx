@@ -8,4 +8,3 @@ export const World: React.FC = () => {
 		</div>
 	)
 }
-

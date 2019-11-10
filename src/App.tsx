@@ -1,22 +1,21 @@
 
 import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Layout } from './components/Layout';
-import { Header } from './components/Header';
+import { Header } from './components/Header'
 import { Hello } from './routes/Hello'
 import { World } from './routes/World'
+
+import { hot } from 'react-hot-loader/root'
 
 const App: React.FC = (): ReactElement => (
 	<Router>
 		<Header />
-		<Layout>
-			<Switch>
-				<Route exact path="/" component={Hello} />
-				<Route path="/world" component={World} />
-				<Route component={(): ReactElement => <div>404</div>} />
-			</Switch>
-		</Layout>
+		<Switch>
+			<Route exact path="/" component={Hello} />
+			<Route exact path="/world" component={World} />
+			<Route component={(): ReactElement => <div>404</div>} />
+		</Switch>
 	</Router>
 )
 
-export default App
+export default hot(App)

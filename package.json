@@ -33,12 +33,16 @@
 		"babel-jest": "24.9.0",
 		"babel-loader": "8.0.6",
 		"css-loader": "3.2.0",
-		"eslint": "6.6.0",
+		"eslint": "^6.6.0",
 		"eslint-config-react": "1.1.7",
+		"eslint-config-standard": "^14.1.0",
 		"eslint-loader": "3.0.2",
-		"eslint-plugin-import": "2.18.2",
+		"eslint-plugin-import": "^2.18.2",
 		"eslint-plugin-jsx-a11y": "6.2.3",
+		"eslint-plugin-node": "^10.0.0",
+		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-react": "7.16.0",
+		"eslint-plugin-standard": "^4.0.1",
 		"file-loader": "4.2.0",
 		"html-webpack-plugin": "3.2.0",
 		"image-webpack-loader": "6.0.0",
@@ -60,11 +64,13 @@
 		"webpack-merge": "4.2.2"
 	},
 	"dependencies": {
+		"@hot-loader/react-dom": "^16.11.0",
 		"@types/react": "^16.9.11",
 		"@types/react-dom": "^16.9.4",
 		"@types/react-router-dom": "^5.1.2",
 		"react": "16.11.0",
 		"react-dom": "16.11.0",
+		"react-hot-loader": "^4.12.16",
 		"react-router-dom": "^5.1.2"
 	}
 }

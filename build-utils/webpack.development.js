@@ -9,8 +9,15 @@ module.exports = env => ({
 	entry: {
 		app: [`${commonPaths.appEntry}/index.tsx`]
 	},
+	resolve: {
+		alias: {
+			'react-dom': '@hot-loader/react-dom'
+		},
+		extensions: ['.ts', '.tsx', '.js', '.jsx']
+	},
 	output: {
-		filename: '[name].[hash].js'
+		filename: '[name].[hash].js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
