@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 import { Hello } from './routes/Hello'
 import { World } from './routes/World'
 
-const App: React.FC = (): ReactElemen => (
+const App: React.FC = (): ReactElement => (
 	<Router>
 		<Header />
 		<Layout>

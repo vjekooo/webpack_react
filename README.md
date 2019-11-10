@@ -26,13 +26,13 @@ git clone https://github.com/vjekooo/webpack_react
 * Then install the dependencies:
 
 ```
-npm install
+yarn install
 ```
 
 * Run development server:
 
 ```
-npm run dev
+yarn dev
 ```
 
  * Wait for the browser to open
@@ -41,11 +41,11 @@ npm run dev
 To run unit tests:
 
 ```
-npm test
+yarn test
 ```
 
 ### To build the production package
 
 ```
-npm run build
+yarn build
 ```
