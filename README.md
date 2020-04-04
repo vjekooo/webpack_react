@@ -4,14 +4,13 @@
 
 ### Features
 
-* React 16
-* React router 5
+* React
+* React router
 * Typescript
-* Webpack 4
-* SASS
-* Babel
-* Hot Module Replacement
-* Jest 22
+* Webpack
+* HMR
+* Styled components
+* Jest
 * ESLint (Standard)
 
 ### To run
