@@ -4,39 +4,40 @@
 
 ### Features
 
-* React
-* React router
-* Typescript
-* Webpack
-* HMR
-* Styled components
-* Jest
-* ESLint (Standard)
+- React
+- React router
+- Typescript
+- Webpack
+- HMR
+- Styled components
+- Jest and React Testing Library
+- ESLint (Standard)
 
 ### To run
 
-* Have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed on your system.
-* Fork and clone the project:
+- Have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed on your system.
+- Fork and clone the project:
 
 ```
 git clone https://github.com/vjekooo/webpack_react
 ```
 
-* Then install the dependencies:
+- Then install the dependencies:
 
 ```
 yarn install
 ```
 
-* Run development server:
+- Run development server:
 
 ```
 yarn dev
 ```
 
- * Wait for the browser to open
+- Wait for the browser to open
 
 ### To test
+
 To run unit tests:
 
 ```
