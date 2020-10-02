@@ -1,15 +1,18 @@
 {
 	"parser": "@typescript-eslint/parser",
 	"extends": [
+		"standard",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
-		"standard"
+		"plugin:prettier/recommended",
+		"prettier",
+		"prettier/@typescript-eslint"
 	],
-	"plugins": [
-		"react",
-		"@typescript-eslint"
-	],
+	"plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+
 	"parserOptions": {
+		"project": "./tsconfig.json",
+		"tsconfigRootDir": "./",
 		"ecmaVersion": 2018,
 		"sourceType": "module",
 		"ecmaFeatures": {
@@ -17,13 +20,19 @@
 		}
 	},
 	"rules": {
+		"react-hooks/rules-of-hooks": "error",
+		"prettier/prettier": "error",
 		"react/prop-types": 0,
 		"indent": ["error", "tab"],
-		"no-tabs": 0
+		"no-tabs": 0,
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": ["error", { "variables": false }]
 	},
-	"settings":  {
-		"react":  {
-		  "version":  "detect"
+	"settings": {
+		"react": {
+			"version": "detect"
 		}
 	}
 }

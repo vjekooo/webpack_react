@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
@@ -25,13 +24,13 @@ const theme = {
 }
 
 const Wrapper = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 600px;
-  padding-right: 10px;
-  padding-left: 10px;
-  font-family: ${(props): string => props.theme.font};
-  background-color: ${(props): string => props.theme.bg};
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 600px;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-family: ${(props): string => props.theme.font};
+	background-color: ${(props): string => props.theme.bg};
 `
 
 const App: React.FC = (): JSX.Element => (

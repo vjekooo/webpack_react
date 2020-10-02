@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,5 +7,5 @@ export const Header: React.FC = () => (
 			<Link to="/">Hello</Link>
 			<Link to="/world">World</Link>
 		</div>
-	</header >
+	</header>
 )
