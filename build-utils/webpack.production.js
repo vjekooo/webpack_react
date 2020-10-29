@@ -14,11 +14,10 @@ module.exports = env => ({
 	},
 	devtool: 'source-map',
 	optimization: {
+		minimize: true,
 		minimizer: [
 			new TerserPlugin({
-				cache: true,
-				parallel: true,
-				sourceMap: true
+				parallel: true
 			})
 		]
 	}
