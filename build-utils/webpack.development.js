@@ -1,6 +1,7 @@
 
 const commonPaths = require('./common-paths')
 const webpack = require('webpack')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const port = process.env.PORT || 3000
 
@@ -28,14 +29,15 @@ module.exports = env => ({
 		historyApiFallback: true,
 		open: true,
 		hot: true,
-		stats: 'minimal',
 		port: port,
-		overlay: {
-			errors: true,
-			warnings: true
+		client: {
+			overlay: {
+				errors: true,
+				warnings: true
+			}
 		}
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new ESLintPlugin()
 	]
 })

@@ -1,12 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import styled, { ThemeProvider, createGlobalStyle, DomainTheme } from 'styled-components'
+import { hot } from 'react-hot-loader/root'
 
 import { Header } from './components/Header'
 import { Hello } from './routes/Hello'
 import { World } from './routes/World'
-
-import { hot } from 'react-hot-loader/root'
 
 const GlobalStyle = createGlobalStyle`	
 	* {
@@ -18,32 +17,30 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-const theme = {
-	bg: 'white',
+const theme: DomainTheme = {
+	background: 'white',
 	font: 'Avenir'
 }
 
 const Wrapper = styled.div`
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0 auto;
 	max-width: 600px;
-	padding-right: 10px;
-	padding-left: 10px;
-	font-family: ${(props): string => props.theme.font};
-	background-color: ${(props): string => props.theme.bg};
+	padding: 0 10px;
+	font-family: ${({ theme }): string => theme.font};
+	background-color: ${({ theme }): string => theme.background};
 `
 
 const App: React.FC = (): JSX.Element => (
 	<ThemeProvider theme={theme}>
 		<Wrapper>
-			<Router>
+			<BrowserRouter>
 				<Header />
-				<Switch>
-					<Route exact path="/" component={Hello} />
-					<Route exact path="/world" component={World} />
-					<Route component={(): JSX.Element => <div>404</div>} />
-				</Switch>
-			</Router>
+				<Routes>
+					<Route path="/" element={<Hello />} />
+					<Route path="/world" element={<World />} />
+					<Route element={<div>404</div>} />
+				</Routes>
+			</BrowserRouter>
 		</Wrapper>
 		<GlobalStyle />
 	</ThemeProvider>

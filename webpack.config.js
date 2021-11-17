@@ -21,12 +21,6 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 			module: {
 				rules: [
 					{
-						test: /\.(ts|tsx|js)$/,
-						enforce: 'pre',
-						loader: 'eslint-loader',
-						include: commonPaths.appEntry
-					},
-					{
 						test: /\.tsx?$/,
 						include: commonPaths.appEntry,
 						use: 'babel-loader'
