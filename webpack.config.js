@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge')
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
 const presetConfig = require('./build-utils/loadPresets')
 const commonPaths = require('./build-utils/common-paths')
+const path = require('path')
 
 module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 	return merge(
@@ -16,6 +17,11 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 				path: commonPaths.outputPath
 			},
 			resolve: {
+				alias: {
+					lib: path.resolve(__dirname, 'src/lib'),
+					components: path.resolve(__dirname, 'src/components'),
+					routes: path.resolve(__dirname, 'src/routes')
+				},
 				extensions: ['.ts', '.tsx', '.js', '.json']
 			},
 			module: {
@@ -23,7 +29,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 					{
 						test: /\.tsx?$/,
 						include: commonPaths.appEntry,
-						use: 'babel-loader'
+						use: 'ts-loader'
 					},
 					{
 						test: /\.json$/,

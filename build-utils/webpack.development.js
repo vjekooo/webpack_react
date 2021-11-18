@@ -38,6 +38,9 @@ module.exports = env => ({
 		}
 	},
 	plugins: [
-		new ESLintPlugin()
+		new ESLintPlugin({
+			extensions: ['.tsx', '.ts', '.js'],
+			exclude: 'node_modules'
+		})
 	]
 })

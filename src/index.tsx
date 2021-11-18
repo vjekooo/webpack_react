@@ -4,8 +4,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import App from './App'
 
-// @ts-ignore
-const render = Component => {
+const render = (Component: React.FC) => {
 	ReactDOM.render(
 		<AppContainer>
 			<Component />
@@ -17,5 +16,7 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-	module.hot.accept('./App', () => { render(App) })
+	module.hot.accept('./App', () => {
+		render(App)
+	})
 }

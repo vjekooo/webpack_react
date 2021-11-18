@@ -2,10 +2,8 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle, DomainTheme } from 'styled-components'
 import { hot } from 'react-hot-loader/root'
-
-import { Header } from './components/Header'
-import { Hello } from './routes/Hello'
-import { World } from './routes/World'
+import { Header } from 'components/Header'
+import { Hello, World } from './routes'
 
 const GlobalStyle = createGlobalStyle`	
 	* {
