@@ -1,22 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import styled, { ThemeProvider, createGlobalStyle, DomainTheme } from 'styled-components'
+import styled, { ThemeProvider, DomainTheme } from 'styled-components'
 import { hot } from 'react-hot-loader/root'
 import { Header } from 'components/Header'
 import { Hello, World } from './routes'
+import { GlobalStyle, themeStyles } from 'lib/types/css'
 
-const GlobalStyle = createGlobalStyle`	
-	* {
-		box-sizing: border-box;
-	}
-	body {
-		background-color: #F7F7F7;
-		margin: 0;
-	}
-`
-
-const theme: DomainTheme = {
-	background: 'white',
+const defaultTheme: DomainTheme = {
+	background: 'salmon',
 	font: 'Avenir'
 }
 
@@ -24,12 +15,11 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 	max-width: 600px;
 	padding: 0 10px;
-	font-family: ${({ theme }): string => theme.font};
-	background-color: ${({ theme }): string => theme.background};
+	${themeStyles};
 `
 
 const App: React.FC = (): JSX.Element => (
-	<ThemeProvider theme={theme}>
+	<ThemeProvider theme={defaultTheme}>
 		<Wrapper>
 			<BrowserRouter>
 				<Header />
