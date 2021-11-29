@@ -1,4 +1,3 @@
-
 const commonPaths = require('./common-paths')
 const webpack = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -33,7 +32,7 @@ module.exports = env => ({
 		client: {
 			overlay: {
 				errors: true,
-				warnings: true
+				warnings: false
 			}
 		}
 	},
