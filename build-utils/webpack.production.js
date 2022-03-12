@@ -7,7 +7,7 @@ module.exports = env => ({
 		app: [`${commonPaths.appEntry}/index.tsx`]
 	},
 	output: {
-		filename: 'js/[name].[chunkhash:8].js'
+		filename: 'js/[name].[contenthash].js'
 	},
 	module: {
 		rules: []

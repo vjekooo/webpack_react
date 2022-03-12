@@ -16,7 +16,7 @@ module.exports = env => ({
 		extensions: ['.ts', '.tsx', '.js', '.jsx']
 	},
 	output: {
-		filename: '[name].[hash].js',
+		filename: '[name].js',
 		publicPath: '/'
 	},
 	module: {
@@ -30,12 +30,15 @@ module.exports = env => ({
 		hot: true,
 		port: port,
 		client: {
+			progress: true,
+			logging: 'info',
 			overlay: {
 				errors: true,
 				warnings: false
 			}
 		}
 	},
+	stats: 'minimal',
 	plugins: [
 		new ESLintPlugin({
 			extensions: ['.tsx', '.ts', '.js'],

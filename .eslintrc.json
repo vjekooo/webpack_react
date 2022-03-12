@@ -17,7 +17,7 @@
 			"jsx": true
 		}
 	},
-	"ignorePatterns": ["public/", "node_modules/", "**/*config.js"],
+	"ignorePatterns": ["public/", "node_modules/", "**/*config.js", "build-utils/"],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
 		"prettier/prettier": "error",
