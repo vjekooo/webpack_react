@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled, { ThemeProvider, DomainTheme } from 'styled-components'
 import { hot } from 'react-hot-loader/root'
 import { Header } from 'components/Header'
-import { Hello, World } from './routes'
-import { GlobalStyle } from 'lib/css/normalize'
-import { themeStyles } from 'lib/css'
+import { Hello, World } from 'routes'
+import { GlobalStyle, themeStyles } from 'lib/style'
 
 const defaultTheme: DomainTheme = {
 	background: 'salmon',

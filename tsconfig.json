@@ -15,11 +15,9 @@
 		"isolatedModules": true,
 		"jsx": "react-jsx",
 		"outDir": "./dist",
-		"baseUrl": ".",
+		"baseUrl": "src",
 		"paths": {
-			"lib/*": ["src/lib/*"],
-			"components/*": ["src/components/*"],
-			"routes/*": ["src/routes/*"]
+			"src/*": ["src/*"]
 		}
 	},
 	"typeRoots": ["./node_modules/@types", "./src/@types"],
