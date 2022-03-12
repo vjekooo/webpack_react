@@ -14,9 +14,3 @@ const render = (Component: React.FC) => {
 }
 
 render(App)
-
-if (module.hot) {
-	module.hot.accept('./App', () => {
-		render(App)
-	})
-}

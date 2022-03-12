@@ -22,10 +22,10 @@
 		"react-hooks/rules-of-hooks": "error",
 		"prettier/prettier": "error",
 		"react/prop-types": 0,
-		"indent": ["error", "tab"],
 		"no-tabs": 0,
 		"react/jsx-uses-react": "error",
-		"react/jsx-uses-vars": "error"
+		"react/jsx-uses-vars": "error",
+		"@typescript-eslint/indent": ["error", "tab"]
 	},
 	"settings": {
 		"react": {
