@@ -8,7 +8,6 @@
 		"prettier"
 	],
 	"plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
-
 	"parserOptions": {
 		"project": "./tsconfig.json",
 		"tsconfigRootDir": "./",
@@ -18,6 +17,7 @@
 			"jsx": true
 		}
 	},
+	"ignorePatterns": ["public/", "node_modules/", "**/*config.js"],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
 		"prettier/prettier": "error",
