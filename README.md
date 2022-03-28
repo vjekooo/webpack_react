@@ -1,7 +1,5 @@
 # Webpack React config
 
-[![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
-
 ### Features
 
 - React
