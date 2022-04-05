@@ -1,6 +1,5 @@
 const commonPaths = require('./common-paths')
 const ESLintPlugin = require('eslint-webpack-plugin')
-const webpack = require('webpack')
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 const port = process.env.PORT || 3000
@@ -32,16 +31,11 @@ module.exports = env => ({
 		port: port,
 		client: {
 			progress: true,
-			logging: 'info',
-			overlay: {
-				errors: true,
-				warnings: false
-			}
+			logging: 'warn'
 		}
 	},
 	stats: 'minimal',
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new ReactRefreshPlugin({
 			exclude: /node_modules/,
 			include: commonPaths.appEntry,
