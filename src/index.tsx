@@ -1,15 +1,14 @@
-import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 
 import App from './App'
 
-const render = (Component: React.FC) => {
-	ReactDOM.render(
-		<AppContainer>
-			<Component />
-		</AppContainer>,
-		document.getElementById('app')
-	)
-}
+const container = document.getElementById('app') as HTMLElement
 
-render(App)
+const root = createRoot(container)
+
+root.render(
+	<StrictMode>
+		<App />
+	</StrictMode>
+)

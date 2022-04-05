@@ -29,7 +29,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 					{
 						test: /\.tsx?$/,
 						include: commonPaths.appEntry,
-						use: 'ts-loader'
+						use: 'babel-loader'
 					},
 					{
 						test: /\.json$/,
@@ -68,18 +68,6 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 						]
 					}
 				]
-			},
-			optimization: {
-				splitChunks: {
-					cacheGroups: {
-						vendor: {
-							chunks: 'initial',
-							test: 'vendor',
-							name: 'vendor',
-							enforce: true
-						}
-					}
-				}
 			},
 			plugins: [
 				new HtmlWebpackPlugin({

@@ -1,6 +1,7 @@
 const commonPaths = require('./common-paths')
-const webpack = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const webpack = require('webpack')
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 const port = process.env.PORT || 3000
 
@@ -10,9 +11,6 @@ module.exports = env => ({
 		app: [`${commonPaths.appEntry}/index.tsx`]
 	},
 	resolve: {
-		alias: {
-			'react-dom': '@hot-loader/react-dom'
-		},
 		extensions: ['.ts', '.tsx', '.js', '.jsx']
 	},
 	output: {
@@ -23,6 +21,9 @@ module.exports = env => ({
 		rules: []
 	},
 	devtool: 'inline-source-map',
+	optimization: {
+		runtimeChunk: 'single'
+	},
 	devServer: {
 		host: 'localhost',
 		historyApiFallback: true,
@@ -40,9 +41,17 @@ module.exports = env => ({
 	},
 	stats: 'minimal',
 	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new ReactRefreshPlugin({
+			exclude: /node_modules/,
+			include: commonPaths.appEntry,
+			overlay: {
+				sockPath: '/ws'
+			}
+		}),
 		new ESLintPlugin({
 			extensions: ['.tsx', '.ts', '.js'],
 			exclude: 'node_modules'
 		})
-	]
+	].filter(Boolean)
 })

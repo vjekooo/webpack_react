@@ -19,6 +19,16 @@ module.exports = env => ({
 			new TerserPlugin({
 				parallel: true
 			})
-		]
+		],
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					chunks: 'initial',
+					test: 'vendor',
+					name: 'vendor',
+					enforce: true
+				}
+			}
+		}
 	}
 })

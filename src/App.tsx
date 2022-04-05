@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled, { ThemeProvider, DomainTheme } from 'styled-components'
-import { hot } from 'react-hot-loader/root'
 import { Header } from 'components/Header'
 import { Hello, World } from 'routes'
 import { GlobalStyle, themeStyles } from 'lib/style'
@@ -33,4 +32,4 @@ const App: React.FC = (): JSX.Element => (
 	</ThemeProvider>
 )
 
-export default hot(App)
+export default App
