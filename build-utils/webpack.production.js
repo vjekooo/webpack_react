@@ -1,5 +1,5 @@
-const commonPaths = require('./common-paths')
 const TerserPlugin = require('terser-webpack-plugin')
+const commonPaths = require('./common-paths')
 
 module.exports = env => ({
 	mode: env.mode,
