@@ -1,10 +1,10 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 const { merge } = require('webpack-merge')
-const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
 const presetConfig = require('./build-utils/loadPresets')
 const commonPaths = require('./build-utils/common-paths')
-const path = require('path')
+const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
 
 module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
 	return merge(

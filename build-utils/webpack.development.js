@@ -1,6 +1,6 @@
-const commonPaths = require('./common-paths')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const commonPaths = require('./common-paths')
 
 const port = process.env.PORT || 3000
 
